@@ -31,7 +31,7 @@ SASSC_OPT="-M -t expanded"
 
 THEME_NAME=Colloid
 THEME_VARIANTS=('' '-Purple' '-Pink' '-Red' '-Orange' '-Yellow' '-Green' '-Teal' '-Grey')
-SCHEME_VARIANTS=('' '-Nord' '-Dracula' '-Gruvbox' '-Everforest' '-Catppuccin')
+SCHEME_VARIANTS=('' '-Nord' '-Dracula' '-Gruvbox' '-Everforest' '-Catppuccin' '-Oxocarbon')
 COLOR_VARIANTS=('' '-Light' '-Dark')
 SIZE_VARIANTS=('' '-Compact')
 
@@ -78,7 +78,7 @@ OPTIONS:
                           2. fixed                       Using fixed theme colors (that will break light/dark mode switch)
 
   --tweaks                Specify versions for tweaks
-                          1. [nord|dracula|gruvbox|everforest|catppuccin|all]  (Nord/Dracula/Gruvbox/Everforet/Catppuccin/all) ColorSchemes version
+                          1. [nord|dracula|gruvbox|everforest|catppuccin|oxocarbon|all]  (Nord/Dracula/Gruvbox/Everforet/Catppuccin/oxocarbon/all) ColorSchemes version
                           2. black                       Blackness color version
                           3. rimless                     Remove the 1px border about windows and menus
                           4. normal                      Normal windows button style like gnome default theme (titlebuttons: max/min/close)
@@ -359,6 +359,12 @@ while [[ $# -gt 0 ]]; do
             echo -e "\nCatppuccin ColorScheme version! ..."
             shift
             ;;
+          oxocarbon)
+            colorscheme='true'
+            schemes+=("${SCHEME_VARIANTS[6]}")
+            echo -e "\nOxocarbon ColorScheme version! ..."
+            shift
+            ;;
           all)
             colorscheme='true'
             schemes+=("${SCHEME_VARIANTS[@]}")
@@ -480,6 +486,9 @@ color_schemes() {
         ;;
       -Catppuccin)
         scheme_color='catppuccin'
+        ;;
+      -Oxocarbon)
+        scheme_color='oxocarbon'
         ;;
     esac
     sed -i "/\@import/s/color-palette-default/color-palette-${scheme_color}/" "${SRC_DIR}/sass/_tweaks-temp.scss"

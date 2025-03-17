@@ -256,6 +256,47 @@ make_assets() {
     esac
   fi
 
+  if [[ "$scheme" == '-Oxocarbon' ]]; then
+    case "$theme" in
+      '')
+        theme_color_dark='#1e66f5'
+        theme_color_light='#8caaee'
+        ;;
+      -Purple)
+        theme_color_dark='#be95ff'
+        theme_color_light='#673AB7'
+        ;;
+      -Pink)
+        theme_color_dark='#ff7eb6'
+        theme_color_light='#ee5396'
+        ;;
+      -Red)
+        theme_color_dark='#da1e28'
+        theme_color_light='#a51a20'
+        ;;
+      -Orange)
+        theme_color_dark='#ff892e'
+        theme_color_light='#FF6F00'
+        ;;
+      -Yellow)
+        theme_color_dark='#ffe97b'
+        theme_color_light='#ffdf41'
+        ;;
+      -Green)
+        theme_color_dark='#42be65'
+        theme_color_light='#359851'
+        ;;
+      -Teal)
+        theme_color_dark='#78a9ff'
+        theme_color_light='#33b1ff'
+        ;;
+      -Grey)
+        theme_color_dark='#525252'
+        theme_color_light='#393939'
+        ;;
+    esac
+  fi
+
   if [[ "$blackness" == 'true' ]]; then
     case "$scheme" in
       '')
